@@ -16,6 +16,27 @@ include 'server.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
+
+<?php if ($update == true):
+?>
+
+<form method="POST" action="server.php">
+    <div class="form-group container">
+        <input type="text" name="ID" class="form-control" value="<?php echo $row['ID'];?>">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control" value="<?php echo $row['Username'];?>" placeholder="Enter Username">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control" value="<?php echo $row['Name'];?>" placeholder="Enter Name">
+        <div class="form-group d-flex justify-content-end">
+            <button type="Submit" name="cancel-edit" class="btn btn-primary">Cancel</button>
+            <button type="Submit" name="update" class="btn btn-success">Update</button>
+        </div>
+    </div>
+</form>
+<?php
+    endif;
+?>
+
     <br>
     <table class="table table-striped container table-dark">
     <tr>
@@ -23,14 +44,18 @@ include 'server.php';
     <th>Username</th>
     <th>Name</th>
     <th>Password</th>
+    <th colspan="2" class="text-center">ACTION</th>
     </tr>
     <?php 
 	while ($row = mysqli_fetch_array($result)) { ?>
     <tr>
+    
     <td><?php echo $row['ID']; ?></td>
     <td><?php echo $row['Username']; ?></td>
     <td><?php echo $row['Name']; ?></td>
     <td><?php echo $row['Password']; ?></td>
+    <td class="text-center"><a href="index.php? edit=<?php echo $row['ID'];?>" class="btn btn-primary">Edit</a></td>
+    <td class="text-center"><a href="index.php? del=<?php echo $row['ID'];?>" class="btn btn-danger">Delete</a></td>
     </tr>
     <?php } ?>
     </table>
@@ -42,6 +67,10 @@ include 'server.php';
             <input type="submit" class="btn btn-outline-danger" value="Logout" name="Logout">
         </form>
     </div>
+
+
+   
+    
 
  
 </body>

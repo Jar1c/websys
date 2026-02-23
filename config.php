@@ -1,5 +1,5 @@
 <?php
 // database connection
-$db = mysqli_connect('localhost', 'root', '', 'login_db');
+$db = mysqli_connect('localhost', 'root', '', 'db_calderon');
 
 ?>

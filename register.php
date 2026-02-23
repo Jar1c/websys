@@ -43,7 +43,7 @@
                     Cancel
                 </a>
                 <button type="submit" name="Submit" 
-                        class="flex-[2] bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition duration-300 shadow-lg shadow-emerald-200">
+                        class="flex-[2] bg-blue-700 hover:bg-blue-500 text-white font-bold py-3 rounded-xl transition duration-300 shadow-lg cyan-200">
                     Register Now
                 </button>
             </div>
